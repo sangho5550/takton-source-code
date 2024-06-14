@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: tekton-buildah-express-pipeline-run
+spec:
+  pipelineRef:
+    name: tekton-buildah-express-pipeline
+  workspaces:
+    - name: pipeline-shared-data
+      persistentvolumeclaim:
+        claimName: php-ip-pvc
