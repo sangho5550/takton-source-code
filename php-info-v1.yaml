@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: php-info-v1
+  name: php-info-v1
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: php-info-v1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: php-info-v1
+    spec:
+      containers:
+      - image: 192.168.10.250:5000/tang/php-ip:v1
+        name: php-ip
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
